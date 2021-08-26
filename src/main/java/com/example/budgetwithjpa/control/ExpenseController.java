@@ -27,6 +27,6 @@ public class ExpenseController {
     @PostMapping
     public String addExpense(@RequestBody Expense expense) {
         expenseRepo.save(expense);
-        return "ok.";
+        return "ok";
     }
 }
