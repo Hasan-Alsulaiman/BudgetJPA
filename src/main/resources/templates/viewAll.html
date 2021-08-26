@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Expenses</title>
+    <link rel="stylesheet" th:href="@{styles.css}" />
+</head>
+
+<body>
+<h1>A list of expenses:</h1>
+<table>
+    <tr>
+        <th>TYPE</th>
+        <th>VALUE</th>
+    </tr>
+    <tr th:each="expense: ${expenses}">
+        <td th:text="${expense.type}"/>
+        <td th:text="${expense.value}"/>
+    </tr>
+</table>
+
+</body>
+</html>
