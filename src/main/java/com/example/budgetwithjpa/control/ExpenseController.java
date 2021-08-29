@@ -5,6 +5,7 @@ import com.example.budgetwithjpa.data.CategoryRepository;
 import com.example.budgetwithjpa.entity.Category;
 import com.example.budgetwithjpa.entity.Expense;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
@@ -42,7 +43,6 @@ public class ExpenseController {
 
     @DeleteMapping("/deleteby/type/{type}")
     public Long deleteExpenseBy(@PathVariable String type) {
-        System.out.println(type);
         return expenseRepo.deleteByCategory(type);
     }
 
@@ -55,6 +55,11 @@ public class ExpenseController {
     @DeleteMapping("/deleteby/id/all")
     public void deleteExpenseBy() {
         expenseRepo.deleteAll();
+    }
+
+    @PutMapping("/update/value")
+    public int updateValue(@Param("id") Long id, @Param("newValue") Double newValue) {
+        return expenseRepo.updateValue(id, newValue);
     }
 
 }
