@@ -6,6 +6,7 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 
 @Entity
 @Data
@@ -21,6 +22,7 @@ public class Expense {
     @NonNull
     private Category category;
     @NonNull
+    @Min(value = 0, message = "value should not be less than 0")
     private Double value;
 
     @Override
